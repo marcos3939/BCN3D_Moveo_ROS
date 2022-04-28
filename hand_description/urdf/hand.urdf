@@ -1,0 +1,120 @@
+<?xml version="1.0" ?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <link name="base_hand">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hand_description/meshes/base_tool.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+ <!--Idol Links-->
+
+  <joint name="idol_gear_joint" type="revolute">
+    <origin xyz="-0.014 0 0.024" rpy="0 0 0"/>
+    <parent link="base_hand"/>
+    <child link="idol_gear"/>
+    <axis xyz="0 1 0"/>
+    <limit upper="1.15" lower="-0.5" effort="100" velocity="2"/>
+  </joint>
+
+  <link name="idol_gear">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hand_description/meshes/idol_gear.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="idol_pivot_grip_joint" type="continuous">
+    <origin xyz="-0.007 0 0.044" rpy="0 0 0"/>
+    <parent link="base_hand"/>
+    <child link="idol_pivot_grip"/>
+    <axis xyz="0 1 0"/>
+    <mimic joint="idol_gear_joint" multiplier="1" offset="0"/>
+  </joint>
+
+  <link name="idol_pivot_grip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hand_description/meshes/idol_pivot_grip.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="idol_grip_joint" type="continuous">
+    <origin xyz="-0.04 0 0" rpy="0 0 0"/>
+    <parent link="idol_gear"/>
+    <child link="idol_grip"/>
+    <axis xyz="0 1 0"/>
+    <mimic joint="idol_gear_joint" multiplier="-1" offset="0"/>
+  </joint>
+
+  <link name="idol_grip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hand_description/meshes/idol_grip.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+ <!--Servo Links-->
+
+  <joint name="servo_gear_joint" type="revolute">
+    <origin xyz="0.014 0 0.024" rpy="0 0 0"/>
+    <parent link="base_hand"/>
+    <child link="servo_gear"/>
+    <axis xyz="0 1 0"/>
+    <limit upper="1.15" lower="-0.5" effort="100" velocity="2"/>
+    <mimic joint="idol_gear_joint" multiplier="-1" offset="0"/>
+  </joint>
+
+  <link name="servo_gear">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hand_description/meshes/servo_gear.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="servo_pivot_grip_joint" type="continuous">
+    <origin xyz="0.007 0 0.044" rpy="0 0 0"/>
+    <parent link="base_hand"/>
+    <child link="servo_pivot_grip"/>
+    <axis xyz="0 1 0"/>
+    <mimic joint="servo_gear_joint" multiplier="1" offset="0"/>
+  </joint>
+
+  <link name="servo_pivot_grip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hand_description/meshes/servo_pivot_grip.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="servo_grip_joint" type="continuous">
+    <origin xyz="0.04 0 0" rpy="0 0 0"/>
+    <parent link="servo_gear"/>
+    <child link="servo_grip"/>
+    <axis xyz="0 1 0"/>
+    <mimic joint="servo_gear_joint" multiplier="-1" offset="0"/>
+  </joint>
+
+  <link name="servo_grip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hand_description/meshes/servo_grip.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>
