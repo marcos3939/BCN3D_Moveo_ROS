@@ -1,0 +1,19 @@
+Explicação rápida das configurações dos links e joints:
+Links, parte visual:
+name=”link_name”, nome do link, é usado para associá-lo á um joint;
+rpy=”0 0 0”, significa roll, pitch e yaw, é a rotação do link em torno dos eixos x, y e z respectivamente, normalmente não se altera esse valor;
+xyz=”0 0 0”, posição do link, não necessariamente tem como referência a origem do mundo, podendo ter como ponto zero outro joint;
+mesh filename=”package: ...”, local do arquivo .stl do link, 
+exemplo: "package://moveo_description/meshes/base_link.stl";
+scale=”0 0 0”, escala do arquivo mesh, caso a escala padrão esteja grande demais se costuma usar 0.001.
+Joints:
+name=”joint_name”, nome do joint, é usado para associá-lo á controladores e plugins;
+type=”...”, tipo do joint, são eles: revolute, continuous, fixed, floating, prismatic e planar, por enquanto vamos falar apenas sobre os tipos evolute, continuous e fixed.
+revolute: gira do o child link em torno do eixo do joint dentro de um limite;
+continuous: gira do o child link em torno do eixo do joint sem limitações;
+fixed: fixa o child link ao parent link.
+rpy e xyz, mesma explicação dos links, mas estes têm como ponto zero a posição do parent link e serve como ponto zero para o child link;
+axis xyz”0 0 0”, orientação do axis em relação aos eixos x, y e z. Eixo de rotação do joint, pode usar valores entre 0 e 1 para definir a orientação que cria uma linha reta imaginária sobre a qual o child link rotaciona;
+limit upper=”0” e lower=”0”: ângulo máximo e mínimo de rotação em radianos para os joint de type revolute e pismatic;
+effort=”0”; esforço conjunto máximo em N.m;
+velocity=”0”; velocidade máxima do joint em rad/s para revolute.

@@ -1,0 +1,17 @@
+<launch>
+	<arg name="paused" default="true"/>
+	<arg name="headless" default="false"/>
+	<arg name="use_sim_time" default="true"/>
+
+	<arg name="controller" default="joint_trajectory_control"/>
+
+	<include file="$(find moveo_description)/launch/gazebo.launch" >
+		<arg name="paused" value="$(arg paused)"/>
+		<arg name="headless" value="$(arg headless)"/>
+		<arg name="use_sim_time" value="$(arg use_sim_time)"/>
+	</include>
+
+	<include file="$(find moveo_control)/launch/$(arg controller).launch" >
+	</include>
+
+</launch>
