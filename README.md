@@ -1,28 +1,37 @@
 # BCN3D_Moveo_ROS
-ROS package para simulação de um modelo Moveo ds BCN3D.
-1. Instalale o pacote:
--``` 
+ROS package para simulação de um modelo Moveo de BCN3D.
+1. Instale o pacote:
+``` 
 cd <your_workspace>/src
-```
--```
 git clone https://github.com/marcos3939/BCN3D_Moveo_ROS.git
 ```
--```
-catkin_make
+2. Instale o pacote:
 ```
--```
-cd ..
+(link)
 ```
-1. Instalale o pacote:
--``` 
+3. Instale o pacote:
+``` 
+(link)
+```
+4. Instale o pacote:
+```
+(link)
+```
+5. Instale o pacote:
+``` 
 cd <your_workspace>/src
-```
--```
 git clone https://github.com/marcos3939/BCN3D_Moveo_ROS.git
 ```
--```
-catkin_make
+6. Instale o pacote:
 ```
--```
-cd ..
+(link)
 ```
+7. Instale o pacote:
+``` 
+(link)
+```
+8. Instale o pacote:
+```
+(link)
+```
+
