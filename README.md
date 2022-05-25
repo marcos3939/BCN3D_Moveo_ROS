@@ -19,8 +19,7 @@ git clone https://github.com/marcos3939/BCN3D_Moveo_ROS.git
 ```
 5. Instale o pacote:
 ``` 
-cd <your_workspace>/src
-git clone https://github.com/marcos3939/BCN3D_Moveo_ROS.git
+(link)
 ```
 6. Instale o pacote:
 ```
