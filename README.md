@@ -1,4 +1,7 @@
 # BCN3D_Moveo_ROS
+Este repositório tem como objetivo apresentar como fazer a simulação virtual de um braço robótico.
+
+
 ROS package para simulação de um modelo Moveo de BCN3D.
 1. Instale o pacote:
 ``` 
