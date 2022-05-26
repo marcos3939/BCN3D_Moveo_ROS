@@ -18,3 +18,5 @@
   </node>
 
 </launch>
+<!-- rosrun rqt_gui rqt_gui -->
+<!-- rosrun rqt_joint_trajectory_controller rqt_joint_trajectory_controller -->

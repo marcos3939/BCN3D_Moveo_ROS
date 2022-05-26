@@ -1,12 +1,12 @@
 #!/bin/bash
 
-if [ "$#" -ne 5 ]; then
-	echo "Error: There should be 5 parameters."
-	exit -1;
-fi;
+rosservice call /gazebo/set_model_configuration moveo joint \
+"['joint_1','joint_2','joint_3','joint_4','joint_5']" \
+"[0.0, 0.5, 0.0, 0.5, 0.0]"
+
 rostopic pub /controller/command \
 trajectory_msgs/JointTrajectoryPoint \
-"[$1, $2, $3, $4, $5]" \
+"[0.0, 0.5, 0.5, 0.0, 0.5]" \
 "[0.0, 0.0, 0.0, 0.0, 0.0]" \
 "[0.0, 0.0, 0.0, 0.0, 0.0]" \
 "[0.0, 0.0, 0.0, 0.0, 0.0]" \

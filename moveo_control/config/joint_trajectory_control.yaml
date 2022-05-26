@@ -31,4 +31,3 @@ moveo:
         goal: 0.1
       goal_time: 10.0
       stopped_velocity_tolerance: 0.05
-

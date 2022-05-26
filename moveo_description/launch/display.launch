@@ -3,7 +3,7 @@
   <arg name="moveo" default="$(find moveo_description)/urdf/moveo.urdf"/>
   <arg name="gui" default="true" />
   <arg name="rvizconfig" default="$(find moveo_description)/rviz/urdf.rviz" />
-  <arg name="hand" default="false" />
+  <arg name="hand" default="true" />
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg moveo) hand:=$(arg hand)" />
 

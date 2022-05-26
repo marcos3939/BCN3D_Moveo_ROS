@@ -189,5 +189,16 @@
       </geometry>
     </collision>
   </link>
+
+  <xacro:if value="$(arg hand)">
+    <xacro:include filename="$(find hand_description)/urdf/hand.urdf" />
+
+  <joint name="joint_6" type="fixed">
+    <origin xyz="0 0 0.041" rpy="0 0 0"/>
+    <parent link="link_5"/>
+    <child link="base_hand"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+  </xacro:if>
   
 </robot>

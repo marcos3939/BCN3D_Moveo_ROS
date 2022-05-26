@@ -50,6 +50,14 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
 
+  <exec_depend>computed_torque_controller</exec_depend>
+  <exec_depend>control_msgs</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>joint_state_controller</exec_depend>
+  <exec_depend>pid_plus_gravity_controller</exec_depend>
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>wam_description</exec_depend>
+
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

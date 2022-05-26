@@ -1,18 +1,10 @@
-<?xml version="1.0" ?>
-
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<?xml version="1.0"?>
+<robot name="hand" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find hand_description)/urdf/transmission_hand.xacro" />
   <xacro:include filename="$(find hand_description)/urdf/gazebo_hand.xacro" />
 
-  <joint name="joint_6" type="fixed">
-    <origin xyz="0 0 0.041" rpy="0 0 0"/>
-    <parent link="link_5"/>
-    <child link="base_hand"/>
-    <axis xyz="1 0 0"/>
-  </joint>
-
-  <link name="base_hand">
+  <link name="hand_base_link">
     <inertial>
       <origin rpy="0 0 0" xyz="0.000294 0.003541 0.01953"/>
       <mass value="0.059408"/>
@@ -36,7 +28,7 @@
 
   <joint name="idol_gear_joint" type="revolute">
     <origin xyz="-0.014 0 0.024" rpy="0 0 0"/>
-    <parent link="base_hand"/>
+    <parent link="hand_base_link"/>
     <child link="idol_gear"/>
     <axis xyz="0 1 0"/>
     <limit upper="1.15" lower="-0.5" effort="100" velocity="2"/>
@@ -64,13 +56,15 @@
     </collision>
   </link>
 
-  <joint name="idol_grip_joint" type="continuous">
+	<joint name="idol_grip_joint" type="revolute">
     <origin xyz="-0.04 0 0" rpy="0 0 0"/>
     <parent link="idol_gear"/>
     <child link="idol_grip"/>
     <axis xyz="0 1 0"/>
-    <mimic joint="idol_gear_joint" multiplier="-1" offset="0"/>
-  </joint>
+		<limit effort="30" velocity="1.5" upper="1.15" lower="-0.5" />
+		<dynamics damping="10" friction="1"/>
+		<mimic joint="idol_gear_joint" multiplier="-1" offset="0"/>
+	</joint >
 
   <link name="idol_grip">
     <inertial>
@@ -96,12 +90,13 @@
 
   <joint name="servo_gear_joint" type="revolute">
     <origin xyz="0.014 0 0.024" rpy="0 0 0"/>
-    <parent link="base_hand"/>
+    <parent link="hand_base_link"/>
     <child link="servo_gear"/>
     <axis xyz="0 1 0"/>
     <limit upper="1.15" lower="-0.5" effort="100" velocity="2"/>
-    <mimic joint="idol_gear_joint" multiplier="-1" offset="0"/>
-  </joint>
+		<dynamics damping="10" friction="1"/>
+		<mimic joint="idol_gear_joint" multiplier="-1" offset="0"/>
+	</joint >
 
   <link name="servo_gear">
     <inertial>
@@ -130,8 +125,10 @@
     <parent link="servo_gear"/>
     <child link="servo_grip"/>
     <axis xyz="0 1 0"/>
+    <limit upper="1.15" lower="-0.5" effort="100" velocity="2"/>
+		<dynamics damping="10" friction="1"/>
     <mimic joint="servo_gear_joint" multiplier="-1" offset="0"/>
-  </joint>
+	</joint >
 
   <link name="servo_grip">
     <inertial>

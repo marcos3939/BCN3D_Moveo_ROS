@@ -2,8 +2,16 @@
 <robot name="moveo" xmlns:xacro="http://www.ros.org/wiki/xacro" >
     
     <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/moveo</robotNamespace>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so" >
+        <!--robotNamespace>wam</robotNamespace-->
+
+        <!-- Custom plugin -->
+        <!-- robotSimType>wam_gazebo_ros_control/WamRobotHWSim</robotSimType -->
+
+        <!-- Default plugin -->
+        <!-- robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType -->
+
+        <controlPeriod>0.001</controlPeriod>
         </plugin>
     </gazebo>
     
